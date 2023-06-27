@@ -4,7 +4,7 @@ int SW_STATE = 0;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  pinMode(SW, INPUT);
+  pinMode(SW, INPUT_PULLUP);
   pinMode(LED, OUTPUT);
 }
 
