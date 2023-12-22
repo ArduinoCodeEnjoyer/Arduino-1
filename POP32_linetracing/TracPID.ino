@@ -2,17 +2,17 @@ void TracPID()
 {
   int Output, LeftOutput, RightOutput, KpTemp;
 
-  if (abs(Error) <= 2) KpTemp = 1; else KpTemp = Kp;
+  //if (abs(Error) <= 2) KpTemp = 1; else KpTemp = Kp;
 
-  Output = (KpTemp * Error) + (Ki * Integral) + Kd * (Error - PreError);
+  Output = (Kp * Error) + (Ki * Integral) + Kd * (Error - PreError);
 
   LeftOutput = LeftSpeed + Output;
   RightOutput = RightSpeed - Output;
 
   if (LeftOutput > MaxSpeed) LeftOutput = MaxSpeed;
   if (RightOutput > MaxSpeed) RightOutput = MaxSpeed;
-  if (LeftOutput < 0) LeftOutput = -20;
-  if (RightOutput < 0) RightOutput = -20;
+  if (LeftOutput < 0) LeftOutput = 0;
+  if (RightOutput < 0) RightOutput = 0;
 
   fd2(LeftOutput, RightOutput);
   PreError = Error;

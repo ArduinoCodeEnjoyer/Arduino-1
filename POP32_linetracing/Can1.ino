@@ -26,24 +26,24 @@ void can1() {
 //  while(1){
 //    ao();
 //  }
-  Speed = 42;
-  TracPIDJC(Speed, Speed * 1.35);
+  Speed = 39;
+  TracPIDJC(Speed, Speed * 1.3);
   TurnLeft(); //Left1
-  TracPIDJC(Speed, Speed * 3.5);
+  TracPIDJC(Speed, Speed * 2.5);
   TurnLeft(); //Left2
-  TracPIDJC(Speed, Speed * 1.238);
+  TracPIDJC(Speed, Speed * 2.75);
   TurnLeft(); //Left3
-  TracPIDJC(Speed, Speed * 1.119);
+  Speed = 30;
+  TracPIDJC(Speed, Speed);
   TurnLeft(); //Left4
-  TracPIDJC(Speed, Speed * 1.238);
-  TurnRight(); //Right1
-  TracPIDJC(Speed, Speed * 2.309);
-  TracPIDJC(Speed, Speed * 1.238);
-  TurnRight(); //Right2
-  TracPIDJC(Speed, Speed * 1.238);
+  TracPIDJC(Speed, Speed + 25);
+  TurnLeft(); //Left5
+  TracPIDJC(Speed, Speed * 1.25);
   TurnRight();
-  TracPIDJC(Speed, SlowSpeed * 1.74);
-  Speed = 45;
+  TracPIDJC(Speed, Speed * 1.25);
+  TurnRight(); //Right2
+  TracPIDJC(Speed, SlowSpeed * 1.7);
+  Speed = 41;
   TracPIDJC(Speed - 3, 100);
   TracPIDJC(Speed, 100);
   TracPIDJC(Speed, 100);

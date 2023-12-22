@@ -1,8 +1,5 @@
-void buttonstate() {
+void settingsstate() {
   buttons();
-  if (prevstate == LOW) {
-    start();
-  }
   if (okstate == LOW) {
     lcd.clear();
     delay(250);
@@ -43,7 +40,7 @@ void buttonstate() {
       }
     }
     lcd.clear();
-    homescreen();
+    startedsettingscreen();
     delay(100);
   }
   else if (nextstate == LOW) {
@@ -82,41 +79,25 @@ void buttonstate() {
       }
       else if (okstate == LOW) {
         lcd.clear();
-        delay(250); 
+        delay(250);
+        
         while (prevstate == HIGH) {
           buttons();
           lcd.setCursor(0, 0);
           lcd.print("1.Back");
-          lcd.setCursor(8, 0);
-          lcd.print("2.MaxMap");
+          lcd.setCursor(9, 0);
+          lcd.print("2.Reset");
+          lcd.setCursor(0, 1);
+          lcd.print("3.Save Param");
           if (nextstate == LOW) {
             lcd.noDisplay();
             delay(250);
             lcd.display();
           }
           else if (okstate == LOW) {
-            lcd.clear();
-            lcd.setCursor(0, 0);
-            lcd.print("MaxMapVal : " + String(MaxMap));
-            delay(500);
-            buttons();
-            while (okstate == HIGH) {
-              buttons();
-              if (nextstate == LOW) {
-                MaxMap = MaxMap + 1;
-                lcd.setCursor(0, 0);
-                lcd.print("MaxMapVal : " + String(MaxMap));
-                delay(250);
-              }
-              else if (prevstate == LOW) {
-                MaxMap = MaxMap - 1;
-                lcd.setCursor(0, 0);
-                lcd.print("MaxMapVal : " + String(MaxMap));
-                delay(250);
-              }
-            }
-            lcd.clear();
+            lcd.noDisplay();
             delay(250);
+            lcd.display();
           }
         }
       }
@@ -130,7 +111,7 @@ void buttonstate() {
       buttons();
     }
   }
-  homescreen();
+  startedsettingscreen();
   delay(100);
   buttons();
 }
